@@ -10,6 +10,8 @@ var pikeStore = {
   maxCustomerHr: 65,
   avgSalesHr: 6.3,
 
+// Calculates random number of customers, which a loop is then used
+//loop runs to calculate number of sales based on random customer output
   randomCustomerHr: function() {
     return Math.ceil(Math.random() * (this.maxCustomerHr / this.minCustomerHr));
   },
@@ -22,14 +24,21 @@ var pikeStore = {
   },
 }
 
+//keyvalue pairs stored in objects & sales data calculated above
+//are assigned to variables
+
 var getStoreHours = pikeStore.storeHours;
 var generateSalesData = pikeStore.hourlySales();
 var getHourlycookieSales = pikeStore.salesHr;
+
+//DOM is used to interact with the IDs assigned in HTML
 
 var StoreName = document.getElementById('storeNameOne');
 StoreName.textContent = pikeStore.storeName;
 
 var storeHours = document.getElementById('hrCookieSalesOne');
+
+//loop and DOM used to populate list of data above
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
