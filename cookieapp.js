@@ -26,10 +26,10 @@ var getStoreHours = pikeStore.storeHours;
 var generateSalesData = pikeStore.hourlySales();
 var getHourlycookieSales = pikeStore.salesHr;
 
-var StoreName = document.getElementById('StoreName');
+var StoreName = document.getElementById('storeNameOne');
 StoreName.textContent = pikeStore.storeName;
 
-var storeHours = document.getElementById('CookieHourlySales');
+var storeHours = document.getElementById('hrCookieSalesOne');
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
@@ -66,10 +66,10 @@ var getStoreHours = airportStore.storeHours;
 var generateSalesData = airportStore.hourlySales();
 var getHourlycookieSales = airportStore.salesHr;
 
-var StoreName = document.getElementById('StoreNameTwo');
+var StoreName = document.getElementById('storeNameTwo');
 StoreName.textContent = airportStore.storeName;
 
-var storeHours = document.getElementById('CookieHourlySalesSecondStore');
+var storeHours = document.getElementById('hrCookieSalesTwo');
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
@@ -104,10 +104,10 @@ var getStoreHours = seaCenterStore.storeHours;
 var generateSalesData = seaCenterStore.hourlySales();
 var getHourlycookieSales = seaCenterStore.salesHr;
 
-var StoreName = document.getElementById('StoreNameThree');
+var StoreName = document.getElementById('storeNameThree');
 StoreName.textContent = seaCenterStore.storeName;
 
-var storeHours = document.getElementById('CookieHourlySalesThirdStore');
+var storeHours = document.getElementById('hrCookieSalesThree');
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
@@ -141,10 +141,10 @@ var getStoreHours = capHillStore.storeHours;
 var generateSalesData = capHillStore.hourlySales();
 var getHourlycookieSales = capHillStore.salesHr;
 
-var StoreName = document.getElementById('StoreNameFourth');
+var StoreName = document.getElementById('storeNameFour');
 StoreName.textContent = capHillStore.storeName;
 
-var storeHours = document.getElementById('CookieHourlySalesFourthStore');
+var storeHours = document.getElementById('hrCookieSalesFour');
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
@@ -178,10 +178,10 @@ var getStoreHours = alkiStore.storeHours;
 var generateSalesData = alkiStore.hourlySales();
 var getHourlycookieSales = alkiStore.salesHr;
 
-var StoreName = document.getElementById('StoreNameFifth');
+var StoreName = document.getElementById('storeNameFive');
 StoreName.textContent = alkiStore.storeName;
 
-var storeHours = document.getElementById('CookieHourlySalesFifthStore');
+var storeHours = document.getElementById('hrCookieSalesFive');
 
 var storeHoursLi;
 for (var i = 0; i < getStoreHours.length; i++ ){
