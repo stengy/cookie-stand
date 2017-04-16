@@ -1,73 +1,86 @@
-'use strict'
+'use strict';
 
 
 var salesTable = document.getElementById('salesTable');
 
-//Object constructor for storeHours
-
-function Store(name, minCustomerHr, maxCustomerHr, avgSalesHr) {
+//constructor object for any and all stores
+function Store (name,minCustomerHr,maxCustomerHr,avgCookieHr) {
   this.name = name;
-  this.openTime = 6;
-  this.closeTime = 20;
   this.minCustomerHr = minCustomerHr;
   this.maxCustomerHr = maxCustomerHr;
-  this.avgSalesHr = avgSalesHr;
+  this.avgCookieHr = avgCookieHr;
   this.hourlySales = [];
-  this.hoursOpen = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-
+  this.hoursOpen = ['6am', '7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 }
 
-//generate data for stores
-
-Store.prototype.generateRandomCustomer = function() {
-  Math.floor(Math.random() * (this.maxCustomerHr - this.minCustomerHr + 1) + this.minCustomerHr);
+//generates number of customers
+Store.prototype.generateRandomCustomers = function(){
+  return Math.ceil(Math.random() * (this.maxCustomerHr - this.minCustomerHr +1) + this.minCustomerHr);
 };
 
-Store.prototype.generateSalesHr = function(){
-  Math.floor(Math.random() * (this.avgSalesHr * this.generateRandomCustomer()) );
+//generates cookies sold
+Store.prototype.generateCookieSales = function() {
+  return Math.ceil(Math.random()*(this.avgCookieHr * this.generateRandomCustomers()));
 };
 
-Store.prototype.generateCookieHr = function(){
-  for( var i = 0; i < this.hoursOpen.length; i++){
-    this.hourlySales.push(this.generateSalesHr());
+//stores cookies sold per hour into an array, note push command
+Store.prototype.generateCookiesPerHour = function(){
+  for(var i = 0; i < this.hoursOpen.length; i++){
+    this.hourlySales.push(this.generateCookieSales());
   }
 };
 
+//following functions generate the table, prototype helps save memory
+Store.prototype.generateTableRows = function() {
+
+  var rowHours, showHoursRow, rowName;
+  rowHours = document.createElement('tr');
+  rowName = document.createElement('td');
+  rowHours.appendChild(rowName);
+
+  rowName.textContent = this.name;
+
+  for(var i = 0; i < this.hoursOpen.length; i++){
+    showHoursRow = document.createElement('td');
+    showHoursRow.textContent = this.hourlySales[i];
+    rowHours.appendChild(showHoursRow);
+  }
+  salesTable.appendChild(rowHours);
+};
 
 Store.prototype.generateTableHeading = function() {
-  var headingRow = document.createElement('tr');
-  var heading = document.createElement('td');
-  heading.textContent = 'Store Name';
-  headingRow.appendChild(heading);
+  var tableHeadingRow = document.createElement('tr');
+  var tableHeading = document.createElement('th');
+  tableHeading.textContent = 'Store Name';
+  tableHeadingRow.appendChild(tableHeading);
 
-  for(var i = 0; i < this.hoursOpen.length; i++) {
-    var rowShowHours = document.createElement('th');
-    rowShowHours.textContent = this.hoursOpen[i];
-    headingRow.appendChild(rowShowHours);
+  for(var i = 0; i < this.hoursOpen.length; i++){
+    var showHoursRow = document.createElement('th');
+    showHoursRow.textContent = this.hoursOpen[i];
+    tableHeadingRow.appendChild(showHoursRow);
+
+    salesTable.appendChild(tableHeadingRow);
   }
 };
 
-
-
-//table creation for data
-
-Store.prototype.generateTableRows = function() {
-  var hoursRow, rowShowHours, storeNameRow;
-  hoursRow = document.createElement('tr');
-  storeNameRow = document.createElement('td');
-  hoursRow.appendChild(storeNameRow);
-  storeNameRow.textContent = this.name;
-
-  for(var i = 0; i < this.hoursOpen.length; i++) {
-    rowShowHours = document.createElement('td');
-    rowShowHours.textContent = this.hourlySales[i];
-    hoursRow.appendChild(rowShowHours);
-  }
-  // salesTable.appendChild(hoursRow);
-};
-
-
-var pikeStore = new Store ('1st and Pike', 12, 13, 3.4);
-pikeStore.generateCookieHr();
+//new store invoking functions to populate generated data 
+var pikeStore = new Store('1st and Pike', 12, 13, 3.4);
+pikeStore.generateCookiesPerHour();
 pikeStore.generateTableHeading();
 pikeStore.generateTableRows();
+
+var seaTacAirportStore = new Store('Sea-Tac Airport', 3, 24, 1.2);
+seaTacAirportStore.generateCookiesPerHour();
+seaTacAirportStore.generateTableRows();
+
+var seattleCenter = new Store('Seattle Center', 11, 38, 3.7);
+seattleCenter.generateCookiesPerHour();
+seattleCenter.generateTableRows();
+
+var capHillStore = new Store('Capitol Hill', 20, 38, 2.3);
+capHillStore.generateCookiesPerHour();
+capHillStore.generateTableRows();
+
+var alkiStore = new Store('Alki Beach', 2, 16, 4.6);
+alkiStore.generateCookiesPerHour();
+alkiStore.generateTableRows();
