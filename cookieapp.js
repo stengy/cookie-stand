@@ -2,6 +2,28 @@
 
 
 var salesTable = document.getElementById('salesTable');
+var addStore = document.getElementById('addStore');
+
+addStore.addEventListener('submit', createStore);
+
+function createStore(event) {
+  event.preventDefault();
+
+  var form = event.target;
+
+  var name = form.name.value;
+  var addMinCustomerHr = parseInt(form.addMinCustomerHr.value);
+  var addMaxCustomerHr = parseInt(form.addMaxCustomerHr.value);
+  var avgSaleCustomer = parseInt(form.avgSaleCustomer.value);
+
+
+  var addedStore = new Store (name, addMinCustomerHr, addMaxCustomerHr, avgSaleCustomer);
+  console.log('type of name', typeof name);
+  addedStore.generateCookiesPerHour();
+  addedStore.generateTableRows();
+
+
+}
 
 //constructor object for any and all stores
 function Store (name,minCustomerHr,maxCustomerHr,avgCookieHr) {
@@ -63,7 +85,7 @@ Store.prototype.generateTableHeading = function() {
   }
 };
 
-//new store invoking functions to populate generated data 
+//new store invoking functions to populate generated data
 var pikeStore = new Store('1st and Pike', 12, 13, 3.4);
 pikeStore.generateCookiesPerHour();
 pikeStore.generateTableHeading();
