@@ -2,16 +2,27 @@
 <html>
 <head>
   <title>Sales Data</title>
-<link rel="stylesheet" href="frontstyle.css" type="text/css" />
+  <link rel="stylesheet" href="frontstyle.css" type="text/css" />
 </head>
 <body>
   <div id="container">
 
     <div id="body-box">
-      <div id="table-box">
-      <table id="salesTable">
 
-      </table>
+      <div id="table-box">
+
+        <table id="salesTable">
+
+          <form id="addStore">
+
+            <input type="text" name="addStoreName" placeholder="Enter A Store Name" required/>
+            <input type="number" name="addMinCustomerHr" placeholder="Mininmum Customers An Hour" required/>
+            <input type="number" name="addMaxCustomerHr" placeholder="Maximum Customers An Hour" required/>
+            <input type="number" name="avgSaleCustomer" placeholder="Average Sale A Customer" required/>
+            <button type="submit"> Add New Store </button>
+
+          </form>
+        </table>
       </div>
     </div>
   </div>
