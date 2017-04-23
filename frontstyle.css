@@ -23,6 +23,7 @@ body{
 
 .intro-box{
   width: 700px;
+  height: auto;
   border: solid black;
   margin: 0 auto;
   background-color: #7E9C7C
@@ -30,17 +31,40 @@ body{
 }
 
 .intro-box h1{
-  margin-top:  5px;
+  padding: 5px;
   text-align: center;
   color: beige;
 }
 
+.intro-box p{
+  height: 30%;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+#container{
+  text-align: center;
+}
+
+#container img{
+  width: 35%;
+  height: auto;
+
+}
 
 #body-box {
   position: relative;
-  height: 10%;
   width: 100%;
-  margin-top: 0;
+  height: auto;
+  margin-top: 50px;
+
+}
+
+#addStore{
+  width: 35%;
+  height: auto;
+  margin: 0 auto;
 
 }
 
@@ -51,6 +75,7 @@ table {
   height: 90%;
   text-align: center;
   border-collapse: collapse;
+  margin-top: 25px;
 }
 tr,td {
   text-align:center;
