@@ -11,18 +11,18 @@ function createStore(event) {
 
   var form = event.target;
 
-  var name = form.name.value;
+  var enteredName = form.enteredName.value;
   var addMinCustomerHr = parseInt(form.addMinCustomerHr.value);
   var addMaxCustomerHr = parseInt(form.addMaxCustomerHr.value);
   var avgSaleCustomer = parseInt(form.avgSaleCustomer.value);
 
 
-  var addedStore = new Store (name, addMinCustomerHr, addMaxCustomerHr, avgSaleCustomer);
+  var addedStore = new Store (enteredName, addMinCustomerHr, addMaxCustomerHr, avgSaleCustomer);
   console.log('type of name', typeof name);
   addedStore.generateCookiesPerHour();
   addedStore.generateTableRows();
 
-
+  form.reset();
 }
 
 //constructor object for any and all stores
