@@ -11,7 +11,29 @@ body{
 }
 
 
+.front-page-head{
+  text-align: center;
+  height: 200px;
+}
 
+.front-page-head img{
+  width: 35%;
+  height: auto;
+}
+
+.intro-box{
+  width: 700px;
+  border: solid black;
+  margin: 0 auto;
+  background-color: #7E9C7C
+
+}
+
+.intro-box h1{
+  margin-top:  5px;
+  text-align: center;
+  color: beige;
+}
 
 
 #body-box {
